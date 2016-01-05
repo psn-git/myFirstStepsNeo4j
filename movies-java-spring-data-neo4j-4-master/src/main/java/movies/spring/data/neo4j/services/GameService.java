@@ -1,6 +1,6 @@
 package movies.spring.data.neo4j.services;
 
-import movies.spring.data.neo4j.repositories.MovieRepository;
+import movies.spring.data.neo4j.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.neo4j.template.Neo4jTemplate;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class GameService {
             int target=i;
             i++;
             for (Object name : (Collection) row.get("cast")) {
-                Map<String, Object> actor = map("name", name,"name","user");
+                Map<String, Object> user = map("name", name,"name","user");
                 int source = nodes.indexOf(user);
                 if (source == -1) {
                     nodes.add(user);
@@ -44,7 +44,7 @@ public class GameService {
     }
 
     public Map<String, Object> graph(int limit) {
-        Iterator<Map<String, Object>> result = movieRepository.graph(limit).iterator();
+        Iterator<Map<String, Object>> result = gameRepository.graph(limit).iterator();
         return toD3Format(result);
     }
 }
