@@ -1,4 +1,5 @@
 
+package movies.spring.data.neo4j.domain;
 import org.neo4j.graphdb.Direction;
 import org.neo4j.ogm.annotation.*;
 
