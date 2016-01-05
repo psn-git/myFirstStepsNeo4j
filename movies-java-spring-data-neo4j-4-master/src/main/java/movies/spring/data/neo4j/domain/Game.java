@@ -30,7 +30,7 @@ public class Game {
         return name;
     }
 
-    public int getState() {
+    public String getState() {
         return state;
     }
 

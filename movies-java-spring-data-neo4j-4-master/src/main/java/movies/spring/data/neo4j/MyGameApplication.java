@@ -31,7 +31,7 @@ public class MyGameApplication extends WebMvcConfigurerAdapter {
 
     @RequestMapping("/graph")
     public Map<String, Object> graph(@RequestParam(value = "limit",required = false) Integer limit) {
-        return movieService.graph(limit == null ? 100 : limit);
+        return gameService.graph(limit == null ? 100 : limit);
     }
 
 }

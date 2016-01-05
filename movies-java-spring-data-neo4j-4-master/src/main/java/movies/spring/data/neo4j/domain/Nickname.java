@@ -26,11 +26,11 @@ public class Nickname {
         return nicknames;
     }
 
-    public Person getUser() {
+    public User getUser() {
         return user;
     }
 
-    public Movie getGame() {
+    public Game getGame() {
         return game;
     }
 }

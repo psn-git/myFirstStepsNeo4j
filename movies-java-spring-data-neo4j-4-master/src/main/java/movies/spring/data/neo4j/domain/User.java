@@ -16,7 +16,7 @@ public class User {
     @GraphId Long id;
 
     private String name;
-    private date born;
+    private String born;
 
     @Relationship(type = "isMember")
     List<Game> games;
@@ -27,7 +27,7 @@ public class User {
         return name;
     }
 
-    public int getBorn() {
+    public String getBorn() {
         return born;
     }
 
