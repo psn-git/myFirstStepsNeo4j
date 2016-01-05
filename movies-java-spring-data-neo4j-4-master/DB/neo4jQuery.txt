@@ -13,7 +13,7 @@ RETURN g1, s1
 
 
 
-CREATE (g1:Game {name:"Game1",state:"new"}),(g2:Game {name:"Game2",state:"playing"}),(g3:Game {name:"Game3",state:"closed"}),(g4:Game {name:"Game4",state:"new"}),(s1:Step {name:"Step1",state:"new"}),(s2:Step {name:"Step2",state:"new"}),(s3:Step {name:"Step3",state:"new"}),(s4:Step {name:"Step4",state:"new"}),(e1:Equation {name:"Equation1",expression: "10+8=?",result:"18",state:"new"}),(e2:Equation {name:"Equation2",expression: "19+8=?",result:"27",state:"solved"}),(u1:User {name:"Peter",birth: "27.01.1973",state:"active"}),(u2:User {name:"Leon",birth: "03.08.2006",state:"active"}),(u3:User {name:"Gina",birth: "23.12.2009",state:"new"}),
+CREATE (g1:Game {name:"Game1",state:"new"}),(g2:Game {name:"Game2",state:"playing"}),(g3:Game {name:"Game3",state:"closed"}),(g4:Game {name:"Game4",state:"new"}),(s1:Step {name:"Step1",state:"new"}),(s2:Step {name:"Step2",state:"new"}),(s3:Step {name:"Step3",state:"new"}),(s4:Step {name:"Step4",state:"new"}),(e1:Equation {name:"Equation1",expression: "10+8=?",result:"18",state:"new"}),(e2:Equation {name:"Equation2",expression: "19+8=?",result:"27",state:"solved"}),(u1:User {name:"Peter",born: "27.01.1973",state:"active"}),(u2:User {name:"Leon",born: "03.08.2006",state:"active"}),(u3:User {name:"Gina",born: "23.12.2009",state:"new"}),
   (g1)-[:owns {since:"05.01.2016 17:00:01"}]->(s1),
  (g1)-[:owns {since:"05.01.2016 17:00:02"}]->(s2),
  (g1)-[:owns {since:"05.01.2016 17:00:03"}]->(s3),
@@ -24,14 +24,14 @@ CREATE (g1:Game {name:"Game1",state:"new"}),(g2:Game {name:"Game2",state:"playin
  (s4)-[:isPartOf ]->(g2),
 (s1)-[:has]->(e1),
 (s2)-[:has]->(e2),
-(u1)-[:isMember]->(g1),
-(u2)-[:isMember]->(g1),
+(u1)-[:isMember {nicknames:['superP']}]->(g1),
+(u2)-[:isMember {nicknames:['LEO']}]->(g1),
 (g1)-[:hasMember]->(u1),
 (g1)-[:hasMember]->(u2),
 (u1)-[:isPlayer]->(s1),
 (u2)-[:isPlayer]->(s2),
 (u1)-[:isPlayer]->(s3),
-(u2)-[:isMember]->(g2),
+(u2)-[:isMember {nicknames:['powerLELE']}]->(g2),
 (g2)-[:hasMember]->(u2),
 (u2)-[:isPlayer]->(s4)
 RETURN g1, g2, g3, g4, s1, s2, s3, s4, e1, e2, u1, u2
@@ -39,3 +39,7 @@ RETURN g1, g2, g3, g4, s1, s2, s3, s4, e1, e2, u1, u2
 
 MATCH (n)
 DETACH DELETE n
+
+MATCH n
+OPTIONAL MATCH n-[r]-()
+DELETE n, r
