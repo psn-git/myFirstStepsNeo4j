@@ -14,8 +14,8 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * @author mh
- * @since 06.10.14
+ * @author psn
+ * @since 05.01.2016
  */
 @Configuration
 @Import(MyNewNeo4jConfiguration.class)
@@ -23,7 +23,7 @@ import java.util.Map;
 public class MyGameApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) throws IOException {
-        SpringApplication.run(SampleMovieApplication.class, args);
+        SpringApplication.run(MyGameApplication.class, args);
     }
 
     @Autowired
