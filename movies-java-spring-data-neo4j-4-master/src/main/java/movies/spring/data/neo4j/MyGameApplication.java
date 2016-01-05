@@ -18,9 +18,9 @@ import java.util.Map;
  * @since 06.10.14
  */
 @Configuration
-@Import(MyNeo4jConfiguration.class)
+@Import(MyNewNeo4jConfiguration.class)
 @RestController("/")
-public class SampleMovieApplication extends WebMvcConfigurerAdapter {
+public class MyGameApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) throws IOException {
         SpringApplication.run(SampleMovieApplication.class, args);

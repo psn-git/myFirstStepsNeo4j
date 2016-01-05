@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {"games.spring.data.neo4j.services"})
 @Configuration
-@EnableNeo4jRepositories(basePackages = "games.spring.data.neo4j.repositories")
+@EnableNeo4jRepositories(basePackages = "movies.spring.data.neo4j.repositories")
 public class MyNewNeo4jConfiguration extends Neo4jConfiguration {
 
     public static final String URL = System.getenv("NEO4J_URL") != null ? System.getenv("NEO4J_URL") : "http://localhost:7474";
@@ -32,7 +32,7 @@ public class MyNewNeo4jConfiguration extends Neo4jConfiguration {
 
     @Override
     public SessionFactory getSessionFactory() {
-        return new SessionFactory("games.spring.data.neo4j.domain");
+        return new SessionFactory("movies.spring.data.neo4j.domain");
     }
 }
 
