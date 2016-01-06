@@ -13,12 +13,11 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguratio
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-// tag::config[]
 @EnableTransactionManagement
 @Import(RepositoryRestMvcConfiguration.class)
 @EnableScheduling
 @EnableAutoConfiguration
-@ComponentScan(basePackages = {"games.spring.data.neo4j.services"})
+@ComponentScan(basePackages = {"movies.spring.data.neo4j.services"})
 @Configuration
 @EnableNeo4jRepositories(basePackages = "movies.spring.data.neo4j.repositories")
 public class MyNewNeo4jConfiguration extends Neo4jConfiguration {
